@@ -5,6 +5,9 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { User } from './auth/entities/user.entity';
+import { JwtModule } from '@nestjs/jwt';
+import { CompaniesModule } from './companies/companies.module';
+import { Company } from './companies/entities/company.entity';
 
 @Module({
   imports: [
@@ -16,10 +19,16 @@ import { User } from './auth/entities/user.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User],
+      entities: [User, Company],
       synchronize: true
     }),
-    AuthModule
+    JwtModule.register({
+      global: true,
+      signOptions: { expiresIn: '4d' },
+      secretOrPrivateKey: process.env.JWT_SECRET
+    }),
+    AuthModule,
+    CompaniesModule
   ],
   controllers: [AppController],
   providers: [AppService]
