@@ -1,7 +1,8 @@
-// import { useAuth } from '../hooks/auth.hook';
+import { useEffect } from 'react';
+import { useAuth } from '../hooks/auth.hook';
 
 export const LoginScreen = (): JSX.Element => {
-  // const { loginUser, registerUser } = useAuth();
+  const { loginUser, registerUser } = useAuth();
 
   return (
     <div>

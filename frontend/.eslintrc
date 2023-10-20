@@ -2,5 +2,5 @@
     "rules": {
         "react/react-in-jsx-scope": "off"
       },
-      "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"]
+      "extends": ["plugin:react/recommended", "plugin:prettier/recommended"]
 }
