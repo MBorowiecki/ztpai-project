@@ -7,6 +7,8 @@ import {
 } from 'features/login/types/user.types';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useAppDispatch, useAppSelector } from 'core/hooks';
+import { setUser } from 'core/store/user';
 
 export const useAuth = () => {
   const [profile, setProfile] = useLocalStorage<UserProfile | null>('profile', null);
@@ -42,6 +44,8 @@ export const useAuth = () => {
       }),
     enabled: false
   });
+  const userState = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
   const loginUser = async () => {
     if (checkLoginCredentials() === false) {
@@ -53,11 +57,13 @@ export const useAuth = () => {
     if (loginError) {
       console.log(loginError);
       setProfile(null);
+      dispatch(setUser(null));
       return;
     }
 
     if (loginData) {
       setProfile(loginData);
+      dispatch(setUser(loginData));
     }
   };
 
@@ -71,11 +77,13 @@ export const useAuth = () => {
     if (registerError) {
       console.log(registerError);
       setProfile(null);
+      dispatch(setUser(null));
       return;
     }
 
     if (registerData) {
       setProfile(registerData);
+      dispatch(setUser(registerData));
     }
   };
 

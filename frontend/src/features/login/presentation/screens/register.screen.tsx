@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/auth.hook';
 import { Link } from 'react-router-dom';
 import { Input } from 'core/inputs/presentation';
 import { Button } from 'core/buttons/presentation';
+import { useAppSelector } from 'core/hooks';
 
 export const RegisterScreen = (): JSX.Element => {
   const {

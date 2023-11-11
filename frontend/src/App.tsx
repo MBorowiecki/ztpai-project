@@ -1,30 +1,23 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Provider } from 'react-redux';
+import { store } from 'core/store';
 
 import { LoginScreen, RegisterScreen } from 'features/login/presentation';
-
-const BrowserRouter = createBrowserRouter([
-  {
-    path: '/',
-    element: <LoginScreen />
-  },
-  {
-    path: '/login',
-    element: <LoginScreen />
-  },
-  {
-    path: '/register',
-    element: <RegisterScreen />
-  }
-]);
+import { Link } from 'react-router-dom';
+import { useAppSelector } from 'core/hooks';
+import { useEffect } from 'react';
+import { Router } from 'core/router';
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={BrowserRouter} />
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <Router />
+      </QueryClientProvider>
+    </Provider>
   );
 }
 
