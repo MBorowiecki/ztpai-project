@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useAuth } from '../hooks/auth.hook';
-import { Link } from 'react-router-dom';
 import { Button } from 'core/buttons/presentation';
 import { Input } from 'core/inputs/presentation';
-import { useAppDispatch, useAppSelector } from 'core/hooks';
+import { Link } from 'react-router-dom';
+
+import { useAuth } from '../hooks/auth.hook';
 
 export const LoginScreen = (): JSX.Element => {
   const { loginUser, setEmail, setPassword, userCredentialsErrors } = useAuth();

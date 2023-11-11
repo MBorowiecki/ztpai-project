@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useAuth } from '../hooks/auth.hook';
-import { Link } from 'react-router-dom';
-import { Input } from 'core/inputs/presentation';
 import { Button } from 'core/buttons/presentation';
-import { useAppSelector } from 'core/hooks';
+import { Input } from 'core/inputs/presentation';
+import { Link } from 'react-router-dom';
+
+import { useAuth } from '../hooks/auth.hook';
 
 export const RegisterScreen = (): JSX.Element => {
   const {

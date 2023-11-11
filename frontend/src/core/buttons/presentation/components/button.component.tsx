@@ -8,7 +8,10 @@ interface Props {
 export const Button = ({ text, onClick, error, className }: Props): JSX.Element => {
   return (
     <>
-      <button className={`button button-primary ${className}`} onClick={onClick}>
+      <button
+        type="button"
+        className={`button button-primary ${className ?? ''}`}
+        onClick={onClick}>
         {text}
       </button>
 

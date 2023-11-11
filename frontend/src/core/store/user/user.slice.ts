@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserProfile } from 'features/login/types/user.types';
 
 const initialState: { value: UserProfile | null } = {
@@ -7,7 +7,7 @@ const initialState: { value: UserProfile | null } = {
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: initialState,
+  initialState,
   reducers: {
     setUser: (state, action: PayloadAction<UserProfile | null>) => {
       return { value: action.payload };

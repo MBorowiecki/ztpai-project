@@ -1,7 +1,7 @@
 import { LoginScreen, RegisterScreen } from 'features/login/presentation';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { useEffect, type JSX } from 'react';
-import { useAppSelector } from 'core/hooks';
+import { type JSX } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import { ProtectedRoute } from './protectedRoute.component';
 
 const BrowserRouter = createBrowserRouter([
