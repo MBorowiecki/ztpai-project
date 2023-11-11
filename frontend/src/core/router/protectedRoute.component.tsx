@@ -1,5 +1,6 @@
 import { useAppSelector } from 'core/hooks';
 import { useEffect } from 'react';
+import { type JSX } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {

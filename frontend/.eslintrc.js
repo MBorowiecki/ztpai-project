@@ -1,4 +1,8 @@
 module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
   extends: [
     'airbnb',
     'airbnb-typescript',
@@ -38,22 +42,8 @@ module.exports = {
     }
   },
   parser: '@typescript-eslint/parser',
-  overrides: [{
-    files: ['*.ts', '*.tsx'],
-    extends: [
-      'plugin:@typescript-eslint/recommended',
-      'plugin:@typescript-eslint/recommended-requiring-type-checking'
-    ],
-    parserOptions: {
-      project: ['./frontend/tsconfig.json']
-    },
-  }],
   parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true // Allows for the parsing of JSX
-    },
-    project: './frontend/tsconfig.json'
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname
   }
 };

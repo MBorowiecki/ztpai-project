@@ -1,5 +1,6 @@
 import { Button } from 'core/buttons/presentation';
 import { Input } from 'core/inputs/presentation';
+import { type JSX } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '../hooks/auth.hook';
