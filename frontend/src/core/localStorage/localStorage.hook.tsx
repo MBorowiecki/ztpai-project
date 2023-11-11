@@ -5,7 +5,7 @@ export const useLocalStorage = function <T>(key: string, initialValue: T): [T, (
     try {
       const item = localStorage.getItem(key);
 
-      return item ? JSON.parse(item) : initialValue;
+      return (item ? JSON.parse(item) : initialValue) as T;
     } catch (error) {
       console.log(error);
 

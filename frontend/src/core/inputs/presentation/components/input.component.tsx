@@ -12,7 +12,7 @@ export const Input = ({ type, placeholder, onChange, className, error }: Props):
   return (
     <>
       <input
-        className={`input color-light_1 ${className}`}
+        className={`input color-light_1 ${className ?? ''}`}
         type={type}
         onChange={onChange}
         placeholder={placeholder}

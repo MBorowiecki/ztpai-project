@@ -1,12 +1,10 @@
-import { useLocalStorage } from 'core/localStorage/localStorage.hook';
-import { login, register } from 'features/login/data/auth.dataSource';
-import {
-  UserCredentials,
-  UserCredentialsErrors,
-  UserProfile
-} from 'features/login/types/user.types';
-import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useAppDispatch } from 'core/hooks';
+import { useLocalStorage } from 'core/localStorage/localStorage.hook';
+import { setUser } from 'core/store/user';
+import { login, register } from 'features/login/data/auth.dataSource';
+import { UserCredentialsErrors, UserProfile } from 'features/login/types/user.types';
+import { useState } from 'react';
 
 export const useAuth = () => {
   const [profile, setProfile] = useLocalStorage<UserProfile | null>('profile', null);
@@ -42,47 +40,12 @@ export const useAuth = () => {
       }),
     enabled: false
   });
-
-  const loginUser = async () => {
-    if (checkLoginCredentials() === false) {
-      return;
-    }
-
-    await refetchLogin();
-
-    if (loginError) {
-      console.log(loginError);
-      setProfile(null);
-      return;
-    }
-
-    if (loginData) {
-      setProfile(loginData);
-    }
-  };
-
-  const registerUser = async () => {
-    if (checkRegisterCredentials() === false) {
-      return;
-    }
-
-    await refetchRegister();
-
-    if (registerError) {
-      console.log(registerError);
-      setProfile(null);
-      return;
-    }
-
-    if (registerData) {
-      setProfile(registerData);
-    }
-  };
+  const dispatch = useAppDispatch();
 
   const checkLoginCredentials = (): boolean => {
     const errors: UserCredentialsErrors = {};
 
-    if (!email || email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) === null) {
+    if (!email || email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g) === null) {
       errors.email = 'Email is required';
     }
 
@@ -98,7 +61,7 @@ export const useAuth = () => {
   const checkRegisterCredentials = (): boolean => {
     const errors: UserCredentialsErrors = {};
 
-    if (!email || email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g) === null) {
+    if (!email || email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g) === null) {
       errors.email = 'Email is required';
     }
 
@@ -117,6 +80,44 @@ export const useAuth = () => {
     setUserCredentialsErrors(errors);
 
     return Object.keys(errors).length === 0;
+  };
+
+  const loginUser = async () => {
+    if (checkLoginCredentials() === false) {
+      return;
+    }
+
+    await refetchLogin();
+
+    if (loginError) {
+      setProfile(null);
+      dispatch(setUser(null));
+      return;
+    }
+
+    if (loginData) {
+      setProfile(loginData);
+      dispatch(setUser(loginData));
+    }
+  };
+
+  const registerUser = async () => {
+    if (checkRegisterCredentials() === false) {
+      return;
+    }
+
+    await refetchRegister();
+
+    if (registerError) {
+      setProfile(null);
+      dispatch(setUser(null));
+      return;
+    }
+
+    if (registerData) {
+      setProfile(registerData);
+      dispatch(setUser(registerData));
+    }
   };
 
   return {
