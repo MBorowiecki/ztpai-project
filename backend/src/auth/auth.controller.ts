@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterUserDto } from './dtos/register-user.dto';
+import { AuthUserDto } from './dtos/auth-user.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -22,9 +23,9 @@ export class AuthController {
   }
 
   @Post('login')
-  login(@Body() registerUserDto: RegisterUserDto) {
+  login(@Body() authUserDto: AuthUserDto) {
     try {
-      return this.authService.loginUser(registerUserDto);
+      return this.authService.loginUser(authUserDto);
     } catch (err) {
       throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
     }

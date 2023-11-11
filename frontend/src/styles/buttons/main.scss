@@ -1,0 +1,18 @@
+.button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: .5rem;
+
+  cursor: pointer;
+
+  &-primary {
+    background-color: $primaryButtonColor;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:hover {
+      background-color: rgba($primaryButtonColor, 0.8);
+    }
+  }
+}

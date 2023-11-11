@@ -10,3 +10,10 @@ export interface UserProfile {
   email: string;
   token: string;
 }
+
+export interface UserCredentialsErrors {
+  username?: string;
+  email?: string;
+  password?: string;
+  confirmedPassword?: string;
+}

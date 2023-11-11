@@ -48,11 +48,11 @@ export class AuthService {
   ): Promise<AuthenticatedUserDto | null> {
     const { password, email, username } = authUserDto;
 
-    const userExists = await this.userRepository.find({
+    const foundUsers = await this.userRepository.find({
       where: { email }
     });
 
-    if (userExists) {
+    if (foundUsers.length > 0) {
       throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
     }
 

@@ -1,0 +1,49 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  &-hcenter {
+    justify-content: center;
+  }
+
+  &-hleft {
+    justify-content: flex-start;
+  }
+
+  &-hright {
+    justify-content: flex-end;
+  }
+
+  &-vcenter {
+    align-items: center;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+
+  &-hcenter {
+    align-items: center;
+  }
+
+  &-hleft {
+    align-items: flex-start;
+  }
+
+  &-hright {
+    align-items: flex-end;
+  }
+
+  &-vcenter {
+    justify-content: center;
+  }
+}
+
+@for $i from 1 through 13 {
+  .col-#{$i} {
+    flex: 0 0 100% / 12 * $i;
+    max-width: 100% / 12 * $i;
+  }
+}

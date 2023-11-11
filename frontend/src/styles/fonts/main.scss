@@ -1,0 +1,143 @@
+.color {
+  &-light_1 {
+    color: $colorLight1;
+  }
+
+  &-light_2 {
+    color: $colorLight2;
+  }
+
+  &-light_3 {
+    color: $colorLight3;
+  }
+
+  &-light_4 {
+    color: $colorLight4;
+  }
+
+  &-light_5 {
+    color: $colorLight5;
+  }
+
+  &-light_6 {
+    color: $colorLight6;
+  }
+
+  &-light_7 {
+    color: $colorLight7;
+  }
+
+  &-light_8 {
+    color: $colorLight8;
+  }
+
+  &-dark_1 {
+    color: $colorDark1;
+  }
+
+  &-dark_2 {
+    color: $colorDark2;
+  }
+
+  &-dark_3 {
+    color: $colorDark3;
+  }
+
+  &-dark_4 {
+    color: $colorDark4;
+  }
+
+  &-dark_5 {
+    color: $colorDark5;
+  }
+
+  &-dark_6 {
+    color: $colorDark6;
+  }
+
+  &-dark_7 {
+    color: $colorDark7;
+  }
+
+  &-dark_8 {
+    color: $colorDark8;
+  }
+
+  &-error_1 {
+    color: $colorError1;
+  }
+}
+
+.size {
+  &-m {
+    font-size: $fontSizeM;
+  }
+
+  &-s {
+    font-size: $fontSizeS;
+  }
+
+  &-xs {
+    font-size: $fontSizeXS;
+  }
+
+  &-l {
+    font-size: $fontSizeL;
+  }
+
+  &-xl {
+    font-size: $fontSizeXL;
+  }
+
+  &-xxl {
+    font-size: $fontSizeXXL;
+  }
+
+  &-h1 {
+    font-size: $fontSizeH1;
+  }
+
+  &-h2 {
+    font-size: $fontSizeH2;
+  }
+
+  &-h3 {
+    font-size: $fontSizeH3;
+  }
+
+  &-h4 {
+    font-size: $fontSizeH4;
+  }
+
+  &-h5 {
+    font-size: $fontSizeH5;
+  }
+
+  &-h6 {
+    font-size: $fontSizeH6;
+  }
+}
+
+.text {
+  &-center {
+    text-align: center;
+  }
+}
+
+.weight {
+  &-light {
+    font-weight: 300;
+  }
+
+  &-regular {
+    font-weight: 400;
+  }
+
+  &-medium {
+    font-weight: 500;
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+}
