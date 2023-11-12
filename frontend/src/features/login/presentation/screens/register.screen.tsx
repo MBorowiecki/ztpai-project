@@ -49,7 +49,9 @@ export const RegisterScreen = (): JSX.Element => {
           error={userCredentialsErrors.confirmedPassword}
         />
 
-        <Button text="REGISTER" onClick={registerUser} className="mt-4 size-m weight-bold" />
+        <Button onClick={registerUser} className="mt-4 size-m weight-bold pv-2">
+          REGISTER
+        </Button>
 
         <p className="text-center mt-4 color-light_4">
           Already have an account?{' '}

@@ -28,7 +28,9 @@ export const LoginScreen = (): JSX.Element => {
           error={userCredentialsErrors.password}
         />
 
-        <Button text="LOGIN" onClick={loginUser} className="mt-4 size-m weight-bold" />
+        <Button onClick={loginUser} className="mt-4 size-m weight-bold pv-2">
+          LOGIN
+        </Button>
 
         <p className="text-center mt-4 color-light_4">
           Don&apos;t have an account?{' '}

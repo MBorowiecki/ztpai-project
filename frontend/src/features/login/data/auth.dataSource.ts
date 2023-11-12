@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { serverAddress } from 'core/config/server';
-import { UserCredentials, UserProfile } from 'features/login/types/user.types';
+import { UserCredentials, UserProfile } from 'features/login/types';
 
 export const login = async (credentials: UserCredentials): Promise<UserProfile> => {
   const response = await axios.post(`${serverAddress}/auth/login`, credentials);

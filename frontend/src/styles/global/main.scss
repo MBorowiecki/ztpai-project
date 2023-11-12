@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p {
     color: $colorBorder1;
 }
 
-@for $i from 1 through 13 {
+@for $i from 0 through 13 {
     .mr-#{$i} {
         margin-right: 0.5rem * $i;
     }
@@ -29,6 +29,20 @@ h1, h2, h3, h4, h5, h6, p {
     }
 
     .mb-#{$i} {
+        margin-bottom: 0.5rem * $i;
+    }
+
+    .m-#{$i} {
+        margin: 0.5rem * $i;
+    }
+
+    .mh-#{$i} {
+        margin-left: 0.5rem * $i;
+        margin-right: 0.5rem * $i;
+    }
+
+    .mv-#{$i} {
+        margin-top: 0.5rem * $i;
         margin-bottom: 0.5rem * $i;
     }
 
@@ -46,6 +60,20 @@ h1, h2, h3, h4, h5, h6, p {
 
     .pr-#{$i} {
         padding-right: 0.5rem * $i;
+    }
+
+    .p-#{$i} {
+        padding: 0.5rem * $i;
+    }
+
+    .ph-#{$i} {
+        padding-left: 0.5rem * $i;
+        padding-right: 0.5rem * $i;
+    }
+    
+    .pv-#{$i} {
+        padding-top: 0.5rem * $i;
+        padding-bottom: 0.5rem * $i;
     }
 }
 

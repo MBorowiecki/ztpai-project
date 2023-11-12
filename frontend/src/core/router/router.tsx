@@ -1,4 +1,4 @@
-import { UserCompanies } from 'features/companies/presentation';
+import { UserCompany } from 'features/companies/presentation';
 import { LoginScreen, RegisterScreen } from 'features/login/presentation';
 import { type JSX } from 'react';
 import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
@@ -20,10 +20,10 @@ const BrowserRouter = createBrowserRouter([
     element: <RegisterScreen />
   },
   {
-    path: '/companies',
+    path: '/company',
     element: (
       <ProtectedRoute>
-        <UserCompanies />
+        <UserCompany />
       </ProtectedRoute>
     )
   }

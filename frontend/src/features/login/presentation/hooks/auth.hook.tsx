@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { useAppDispatch } from 'core/hooks';
 import { useLocalStorage } from 'core/localStorage/localStorage.hook';
 import { setUser } from 'core/store/user';
-import { login, register } from 'features/login/data/auth.dataSource';
+import { login, register } from 'features/login/data';
 import { UserCredentialsErrors, UserProfile } from 'features/login/types/user.types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const useAuth = () => {
@@ -43,6 +43,40 @@ export const useAuth = () => {
   });
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loginError) {
+      setUserCredentialsErrors({
+        email: loginError.message
+      });
+
+      return;
+    }
+
+    if (loginData) {
+      setProfile(loginData);
+      dispatch(setUser(loginData));
+
+      navigate('/company');
+    }
+  }, [loginData, loginError]);
+
+  useEffect(() => {
+    if (registerError) {
+      setUserCredentialsErrors({
+        email: registerError.message
+      });
+
+      return;
+    }
+
+    if (registerData) {
+      setProfile(registerData);
+      dispatch(setUser(registerData));
+
+      navigate('/company');
+    }
+  }, [registerData, registerError]);
 
   const checkLoginCredentials = (): boolean => {
     const errors: UserCredentialsErrors = {};
@@ -90,19 +124,6 @@ export const useAuth = () => {
     }
 
     await refetchLogin();
-
-    if (loginError) {
-      setProfile(null);
-      dispatch(setUser(null));
-      return;
-    }
-
-    if (loginData) {
-      setProfile(loginData);
-      dispatch(setUser(loginData));
-
-      navigate('/companies');
-    }
   };
 
   const registerUser = async () => {
@@ -111,19 +132,6 @@ export const useAuth = () => {
     }
 
     await refetchRegister();
-
-    if (registerError) {
-      setProfile(null);
-      dispatch(setUser(null));
-      return;
-    }
-
-    if (registerData) {
-      setProfile(registerData);
-      dispatch(setUser(registerData));
-
-      navigate('/companies');
-    }
   };
 
   return {
