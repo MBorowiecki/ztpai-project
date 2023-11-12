@@ -30,4 +30,13 @@ export class AuthController {
       throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
     }
   }
+
+  @Post('verify')
+  verify(@Body() token: string) {
+    try {
+      return this.authService.verifyToken(token);
+    } catch (err) {
+      throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+    }
+  }
 }

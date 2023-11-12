@@ -74,4 +74,22 @@ export class AuthService {
       token
     };
   }
+
+  async verifyToken(token: string): Promise<AuthenticatedUserDto | null> {
+    const { id } = this.jwtService.verify(token);
+
+    const user = await this.userRepository.findOne({ where: { id } });
+
+    if (!user) {
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+
+    const newToken = this.jwtService.sign({ id: user.id }, { expiresIn: '4d' });
+
+    return {
+      email: user.email,
+      id: user.id,
+      token: newToken
+    };
+  }
 }
