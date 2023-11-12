@@ -13,3 +13,9 @@ export const register = async (credentials: UserCredentials): Promise<UserProfil
 
   return response.data as UserProfile;
 };
+
+export const verifyToken = async (token: string): Promise<UserProfile> => {
+  const response = await axios.post(`${serverAddress}/auth/verify`, { token });
+
+  return response.data as UserProfile;
+};

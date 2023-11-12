@@ -5,6 +5,7 @@ import { setUser } from 'core/store/user';
 import { login, register } from 'features/login/data/auth.dataSource';
 import { UserCredentialsErrors, UserProfile } from 'features/login/types/user.types';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const useAuth = () => {
   const [profile, setProfile] = useLocalStorage<UserProfile | null>('profile', null);
@@ -41,6 +42,7 @@ export const useAuth = () => {
     enabled: false
   });
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const checkLoginCredentials = (): boolean => {
     const errors: UserCredentialsErrors = {};
@@ -98,6 +100,8 @@ export const useAuth = () => {
     if (loginData) {
       setProfile(loginData);
       dispatch(setUser(loginData));
+
+      navigate('/companies');
     }
   };
 
@@ -117,6 +121,8 @@ export const useAuth = () => {
     if (registerData) {
       setProfile(registerData);
       dispatch(setUser(registerData));
+
+      navigate('/companies');
     }
   };
 
