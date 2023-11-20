@@ -1,16 +1,24 @@
 import { Button } from 'core/buttons/presentation';
 import { Input } from 'core/inputs/presentation';
 import { UserProfile } from 'features/login/types';
-import { type JSX } from 'react';
+import { type JSX, useEffect } from 'react';
 
-import { useCreateCompany } from '../hooks/createCompany.hook';
+import { useCreateCompany } from './hooks/createCompany.hook';
 
 interface Props {
   user: UserProfile;
+  setIsCompanyCreated: (isCompanyCreated: boolean) => void;
 }
 
-export const CreateCompanyComponent = ({ user }: Props): JSX.Element => {
-  const { setCompanyName, companyNameError, createUserCompany } = useCreateCompany({ user });
+export const CreateCompanyComponent = ({ user, setIsCompanyCreated }: Props): JSX.Element => {
+  const { setCompanyName, companyNameError, createUserCompany, createCompanyStatus } =
+    useCreateCompany({ user });
+
+  useEffect(() => {
+    if (createCompanyStatus === 'success') {
+      setIsCompanyCreated(true);
+    }
+  }, [createCompanyStatus]);
 
   return (
     <div className="row row-hcenter pt-4">

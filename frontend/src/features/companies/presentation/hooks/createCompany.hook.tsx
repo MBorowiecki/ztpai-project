@@ -14,7 +14,7 @@ export const useCreateCompany = ({ user }: Props) => {
     data: createCompanyData,
     error: createCompanyError,
     refetch: createCompanyRefetch,
-    isLoading: createCompanyIsLoading
+    status: createCompanyStatus
   } = useQuery({
     queryKey: ['createCompany', companyName, user.id, user.token],
     queryFn: () => createCompany(companyName, user.id, user.token),
@@ -32,10 +32,10 @@ export const useCreateCompany = ({ user }: Props) => {
 
   return {
     createUserCompany,
-    createCompanyIsLoading,
     createCompanyError,
     createCompanyData,
     companyNameError,
-    setCompanyName
+    setCompanyName,
+    createCompanyStatus
   };
 };

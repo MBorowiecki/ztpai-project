@@ -8,11 +8,13 @@ export const useUserCompany = () => {
   const {
     data: companyData,
     error: companyError,
-    refetch: refetchCompany
+    refetch: refetchCompany,
+    status: companyFetchStatus
   } = useQuery({
-    queryKey: ['getUserCompany', userState?.id],
-    queryFn: () => getUserCompany(userState?.id ?? 0),
-    enabled: false
+    queryKey: ['getUserCompany', userState?.id, userState?.token],
+    queryFn: () => getUserCompany(userState?.id ?? 0, userState?.token ?? ''),
+    enabled: false,
+    retry: false
   });
 
   useEffect(() => {
@@ -25,6 +27,7 @@ export const useUserCompany = () => {
     companyData,
     companyError,
     refetchCompany,
-    user: userState
+    user: userState,
+    companyFetchStatus
   };
 };
