@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { serverAddress } from 'core/config/server';
 
-import { Company } from '../types';
+import { Company } from './models';
 
 export const getAllCompanies = async (): Promise<Company[]> => {
   const response = await axios.get(`${serverAddress}/companies`, {

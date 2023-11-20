@@ -1,4 +1,4 @@
-import { Company } from 'features/companies/types';
+import { Company } from 'features/companies/data';
 import { type JSX } from 'react';
 
 interface Props {
