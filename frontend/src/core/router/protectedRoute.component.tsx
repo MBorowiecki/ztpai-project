@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const ProtectedRoute = ({ children }: Props): JSX.Element => {
-  const [profile] = useLocalStorage<UserProfile | null>('profile', null);
+  const [profile, , refetchValue] = useLocalStorage<UserProfile | null>('profile', null);
   const userState = useAppSelector((state) => state.user.value);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -20,21 +20,26 @@ export const ProtectedRoute = ({ children }: Props): JSX.Element => {
   const checkLocalLoginCredentials = async () => {
     if (profile) {
       try {
-        console.log(profile.token);
         await verifyToken(profile.token);
 
-        dispatch(setUser(profile));
+        if (!userState) dispatch(setUser(profile));
       } catch (error) {
+        dispatch(setUser(null));
         navigate('/login', { replace: true });
       }
     } else {
+      dispatch(setUser(null));
       navigate('/login', { replace: true });
     }
   };
 
   useEffect(() => {
+    checkLocalLoginCredentials();
+  }, [profile]);
+
+  useEffect(() => {
     if (!userState) {
-      checkLocalLoginCredentials();
+      refetchValue();
     }
   }, [userState]);
 
