@@ -2,13 +2,23 @@ import { ChangeEventHandler, type JSX } from 'react';
 
 interface Props {
   type: string;
+  name: string;
   placeholder: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
-  error?: string;
+  value?: string;
+  error?: string | boolean;
   className?: string;
 }
 
-export const Input = ({ type, placeholder, onChange, className, error }: Props): JSX.Element => {
+export const Input = ({
+  type,
+  name,
+  placeholder,
+  onChange,
+  className,
+  error,
+  value
+}: Props): JSX.Element => {
   return (
     <>
       <input
@@ -16,6 +26,8 @@ export const Input = ({ type, placeholder, onChange, className, error }: Props):
         type={type}
         onChange={onChange}
         placeholder={placeholder}
+        name={name}
+        value={value}
       />
 
       {error && <p className="mt-1 color-error_1 size-xs">{error}</p>}

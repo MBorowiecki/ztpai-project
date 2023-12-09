@@ -1,9 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { CompaniesService } from './companies.service';
 import { Post, Body } from '@nestjs/common';
 import { NewCompanyDto } from './dtos/new-company.dto';
+import { AuthGuard } from 'src/common/auth.guard';
 
 @Controller('companies')
+@UseGuards(AuthGuard)
 export class CompaniesController {
   constructor(private readonly companiesService: CompaniesService) {}
 
