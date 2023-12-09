@@ -8,6 +8,7 @@ import {
 import { AuthService } from './auth.service';
 import { RegisterUserDto } from './dtos/register-user.dto';
 import { AuthUserDto } from './dtos/auth-user.dto';
+import { VerifyTokenDto } from './dtos/verify-token.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -26,6 +27,15 @@ export class AuthController {
   login(@Body() authUserDto: AuthUserDto) {
     try {
       return this.authService.loginUser(authUserDto);
+    } catch (err) {
+      throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @Post('verify')
+  verify(@Body() verifyTokenDto: VerifyTokenDto) {
+    try {
+      return this.authService.verifyToken(verifyTokenDto.token);
     } catch (err) {
       throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
     }

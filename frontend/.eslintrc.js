@@ -33,7 +33,15 @@ module.exports = {
     '@tanstack/query/stable-query-client': 'error',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    'react/require-default-props': 'off'
+    'react/require-default-props': 'off',
+    'import/no-extraneous-dependencies': [
+      "error", 
+      {
+        "devDependencies": false, 
+        "optionalDependencies": false, 
+        "peerDependencies": false
+      }
+    ]
   },
   plugins: ['react', '@tanstack/query', 'simple-import-sort'],
   settings: {

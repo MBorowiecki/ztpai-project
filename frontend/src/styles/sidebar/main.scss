@@ -1,0 +1,27 @@
+.sidebar {
+  background-color: $colorDark2;
+
+  width: 100px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &--menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  box-shadow: 4px 0px 10px 0px rgba($colorDark1, 0.3);
+}
+
+.content {
+  &-with_sidebar {
+    margin-left: 100px;
+  }
+}

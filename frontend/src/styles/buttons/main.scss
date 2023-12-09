@@ -1,9 +1,12 @@
 .button {
-  padding: 1rem 2rem;
   border: none;
   border-radius: .5rem;
 
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   &-primary {
     background-color: $primaryButtonColor;
@@ -11,8 +14,19 @@
 
     transition: background-color .1s ease-in-out;
 
-    &:hover {
+    &:not(:disabled):hover {
       background-color: rgba($primaryButtonColor, 0.8);
+    }
+  }
+
+  &-clear {
+    background-color: transparent;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($colorLight1, 0.1);
     }
   }
 }

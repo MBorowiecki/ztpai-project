@@ -45,4 +45,24 @@ export class CompaniesService {
 
     return company;
   }
+
+  async getAllCompanies(): Promise<Company[]> {
+    return this.companyRepository.find();
+  }
+
+  async getUserCompany(userId: number): Promise<Company> {
+    const user = await this.userRepository.findOne({ where: { id: userId } });
+
+    if (!user) {
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+
+    const company = await this.companyRepository.findOne({ where: { user } });
+
+    if (!company) {
+      throw new HttpException('Company not found', HttpStatus.NOT_FOUND);
+    }
+
+    return company;
+  }
 }
