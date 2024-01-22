@@ -70,6 +70,18 @@
   &-green_1 {
     color: $colorGreen1;
   }
+
+  &-primary_1 {
+    color: $colorPrimary1;
+  }
+
+  &-primary_2 {
+    color: $colorPrimary2;
+  }
+
+  &-primary_3 {
+    color: $colorPrimary3;
+  }
 }
 
 .size {
@@ -125,6 +137,10 @@
 .text {
   &-center {
     text-align: center;
+  }
+
+  &-no_decoration {
+    text-decoration: none;
   }
 }
 

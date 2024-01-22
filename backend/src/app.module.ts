@@ -8,6 +8,8 @@ import { User } from './auth/entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { CompaniesModule } from './companies/companies.module';
 import { Company } from './companies/entities/company.entity';
+import { EnginesModule } from './engines/engines.module';
+import { Engine } from './engines/entities/engine.entity';
 
 @Module({
   imports: [
@@ -19,7 +21,7 @@ import { Company } from './companies/entities/company.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User, Company],
+      entities: [User, Company, Engine],
       synchronize: true
     }),
     JwtModule.register({
@@ -28,7 +30,8 @@ import { Company } from './companies/entities/company.entity';
       secretOrPrivateKey: process.env.JWT_SECRET
     }),
     AuthModule,
-    CompaniesModule
+    CompaniesModule,
+    EnginesModule
   ],
   controllers: [AppController],
   providers: [AppService]

@@ -1,4 +1,5 @@
 import { UserCompany } from 'features/companies/presentation';
+import { EnginesScreen, NewEngineScreen } from 'features/engines/presentation';
 import { LoginScreen, RegisterScreen } from 'features/login/presentation';
 import { type JSX } from 'react';
 import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
@@ -24,6 +25,22 @@ const BrowserRouter = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <UserCompany />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/engines',
+    element: (
+      <ProtectedRoute>
+        <EnginesScreen />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/engines/new',
+    element: (
+      <ProtectedRoute>
+        <NewEngineScreen />
       </ProtectedRoute>
     )
   }

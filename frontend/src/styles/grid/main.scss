@@ -49,5 +49,38 @@
   .col-#{$i} {
     flex: 0 0 100% / 12 * $i;
     max-width: 100% / 12 * $i;
+    min-width: 100% / 12 * $i;
+  }
+}
+
+@media screen and (max-width: $mobileWidth) {
+  @for $i from 1 through 13 {
+    .col-s-#{$i} {
+      flex: 0 0 100% / 12 * $i;
+      max-width: 100% / 12 * $i;
+      min-width: 100% / 12 * $i;
+    }
+  }
+
+  .col-s {
+    &-hcenter {
+      align-items: center;
+    }
+  
+    &-hleft {
+      align-items: flex-start;
+    }
+  
+    &-hright {
+      align-items: flex-end;
+    }
+  
+    &-vcenter {
+      justify-content: center;
+    }
+  
+    &-grow {
+      flex-grow: 1;
+    }
   }
 }

@@ -10,16 +10,17 @@ import { SidebarItem } from './sidebarItem.component';
 
 interface Props {
   hasCompany: boolean;
+  sidebarOpen: boolean;
 }
 
-export const Sidebar = ({ hasCompany }: Props): JSX.Element => {
+export const Sidebar = ({ hasCompany, sidebarOpen }: Props): JSX.Element => {
   const [, setLocalProfile] = useLocalStorage<UserProfile | null>('profile', null);
   const dispatch = useAppDispatch();
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebarOpen && 'sidebar-open'}`}>
       <div className="sidebar--menu pt-2">
         {sidebarRoutes.map((route) => {
           const isActive = (): boolean => {

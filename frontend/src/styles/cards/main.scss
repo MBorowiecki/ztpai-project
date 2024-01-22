@@ -1,0 +1,27 @@
+.card {
+  background-color: rgba($colorDark2, 0.7);
+  padding: 1rem;
+
+  box-shadow: 0px 4px 10px 0px rgba($colorDark1, 0.2);
+  border-radius: 1rem;
+  outline: none;
+  border: none;
+
+  &--button {
+    cursor: pointer;
+
+    transition: background-color .1s ease-in-out;
+
+    &:hover {
+      background-color: rgba($colorDark2, 0.5);
+    }
+
+    &-primary {
+      background-color: $primaryButtonColor;
+
+      &:hover {
+        background-color: rgba($primaryButtonColor, 0.8);
+      }
+    }
+  }
+}
