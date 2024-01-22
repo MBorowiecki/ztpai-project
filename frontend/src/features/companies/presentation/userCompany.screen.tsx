@@ -1,13 +1,14 @@
+import { useUserCompany } from 'core/hooks';
 import { Sidebar } from 'core/sidebar/presentation';
 import { TopBar } from 'core/topbar/presentation';
 import { type JSX, useEffect, useState } from 'react';
 
 import { CreateCompanyComponent } from './createCompany.component';
-import { useUserCompany } from './hooks/userCompany.hook';
 
 export const UserCompany = (): JSX.Element => {
   const { companyData, user, companyFetchStatus, refetchCompany } = useUserCompany();
   const [isCompanyCreated, setIsCompanyCreated] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (isCompanyCreated) {
@@ -17,10 +18,10 @@ export const UserCompany = (): JSX.Element => {
 
   return (
     <main>
-      <Sidebar hasCompany={companyData !== undefined} />
+      <Sidebar hasCompany={companyData !== undefined} sidebarOpen={sidebarOpen} />
 
       <div className="content-with_sidebar">
-        <TopBar company={companyData} />
+        <TopBar company={companyData} setSidebarOpen={setSidebarOpen} />
 
         {!companyData &&
           user &&

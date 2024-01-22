@@ -1,14 +1,9 @@
-import {
-  Controller,
-  HttpException,
-  HttpStatus,
-  Post,
-  Body
-} from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterUserDto } from './dtos/register-user.dto';
 import { AuthUserDto } from './dtos/auth-user.dto';
 import { VerifyTokenDto } from './dtos/verify-token.dto';
+import { createErrorResponse } from 'src/common/response.utils';
 
 @Controller('auth')
 export class AuthController {
@@ -19,7 +14,7 @@ export class AuthController {
     try {
       return this.authService.registerUser(registerUserDto);
     } catch (err) {
-      throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+      return createErrorResponse(err.message, err.status);
     }
   }
 
@@ -28,7 +23,7 @@ export class AuthController {
     try {
       return this.authService.loginUser(authUserDto);
     } catch (err) {
-      throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+      return createErrorResponse(err.message, err.status);
     }
   }
 
@@ -37,7 +32,7 @@ export class AuthController {
     try {
       return this.authService.verifyToken(verifyTokenDto.token);
     } catch (err) {
-      throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
+      return createErrorResponse(err.message, err.status);
     }
   }
 }

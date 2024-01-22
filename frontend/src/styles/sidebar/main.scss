@@ -12,16 +12,44 @@
   flex-direction: column;
   align-items: center;
 
+  transition: transform 0.3s ease-in-out;
+
   &--menu {
     display: flex;
     flex-direction: column;
   }
 
   box-shadow: 4px 0px 10px 0px rgba($colorDark1, 0.3);
+
+  &--menu--icon {
+    color: $colorLight1;
+    overflow: hidden;
+    display: none;
+  }
 }
 
 .content {
   &-with_sidebar {
     margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: $mobileWidth) {
+  .sidebar {
+    transform: translateX(-200%);
+
+    &--menu--icon {
+      display: block;
+    }
+
+    &-open {
+      transform: translateX(0);
+    }
+  }
+
+  .content {
+    &-with_sidebar {
+      margin-left: 0px;
+    }
   }
 }

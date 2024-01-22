@@ -29,4 +29,19 @@
       background-color: rgba($colorLight1, 0.1);
     }
   }
+
+  &-error {
+    background-color: $colorError1;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($colorError1, 0.8);
+    }
+
+    &:disabled {
+      background-color: rgba($colorError1, 0.5);
+    }
+  }
 }

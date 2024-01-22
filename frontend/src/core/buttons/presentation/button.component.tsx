@@ -1,7 +1,7 @@
 import { type JSX } from 'react';
 
 interface Props {
-  type?: 'primary' | 'clear';
+  type?: 'primary' | 'clear' | 'error';
   children: JSX.Element | string;
   onClick: () => void;
   error?: string;
