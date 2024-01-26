@@ -1,9 +1,11 @@
 import { User } from 'src/auth/entities/user.entity';
+import { Car } from 'src/cars/entities/car.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
@@ -39,6 +41,9 @@ export class Engine {
 
   @ManyToOne(() => User, (user) => user.id)
   user: User;
+
+  @OneToMany(() => Car, (car) => car.engine)
+  cars: Car[];
 
   @CreateDateColumn({
     type: 'timestamp',

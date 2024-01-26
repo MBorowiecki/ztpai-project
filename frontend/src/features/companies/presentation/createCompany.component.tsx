@@ -61,7 +61,7 @@ export const CreateCompanyComponent = ({ user, setIsCompanyCreated }: Props): JS
               />
 
               <Button
-                onClick={handleSubmit}
+                onClick={() => handleSubmit()}
                 className="mt-4 size-m weight-bold pv-2 ph-4 full-width">
                 Create Company
               </Button>

@@ -62,7 +62,9 @@ export const LoginScreen = (): JSX.Element => {
                 value={values.password}
               />
 
-              <Button onClick={handleSubmit} className="mt-4 size-m weight-bold pv-2 full-width">
+              <Button
+                onClick={() => handleSubmit()}
+                className="mt-4 size-m weight-bold pv-2 full-width">
                 LOGIN
               </Button>
 

@@ -1,3 +1,4 @@
+import { CarScreen, CarsScreen, NewCarScreen } from 'features/cars/presentation';
 import { UserCompany } from 'features/companies/presentation';
 import { EnginesScreen, NewEngineScreen } from 'features/engines/presentation';
 import { LoginScreen, RegisterScreen } from 'features/login/presentation';
@@ -41,6 +42,30 @@ const BrowserRouter = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <NewEngineScreen />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/cars',
+    element: (
+      <ProtectedRoute>
+        <CarsScreen />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/cars/new',
+    element: (
+      <ProtectedRoute>
+        <NewCarScreen />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/cars/:carId',
+    element: (
+      <ProtectedRoute>
+        <CarScreen />
       </ProtectedRoute>
     )
   }
