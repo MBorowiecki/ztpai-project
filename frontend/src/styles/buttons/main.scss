@@ -1,0 +1,69 @@
+.button {
+  border: none;
+  border-radius: .5rem;
+
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &-primary {
+    background-color: $primaryButtonColor;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($primaryButtonColor, 0.8);
+    }
+  }
+
+  &-secondary {
+    background-color: $secondaryButtonColor;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($secondaryButtonColor, 0.8);
+    }
+  }
+
+  &-tertiary {
+    background-color: $tertiaryButtonColor;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($tertiaryButtonColor, 0.8);
+    }
+  }
+
+  &-clear {
+    background-color: transparent;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($colorLight1, 0.1);
+    }
+  }
+
+  &-error {
+    background-color: $colorError1;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($colorError1, 0.8);
+    }
+
+    &:disabled {
+      background-color: rgba($colorError1, 0.5);
+    }
+  }
+}
