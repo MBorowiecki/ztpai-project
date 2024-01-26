@@ -1,4 +1,4 @@
-import { FaBuilding, FaPowerOff } from 'react-icons/fa';
+import { FaBuilding, FaCar, FaPowerOff } from 'react-icons/fa';
 import { PiEngineFill } from 'react-icons/pi';
 
 import { SidebarRoute } from './models/sidebarRoute.model';
@@ -18,6 +18,14 @@ export const sidebarRoutes: SidebarRoute[] = [
     onClickAction: {
       type: 'push',
       payload: '/engines'
+    }
+  },
+  {
+    name: 'Cars',
+    icon: <FaCar />,
+    onClickAction: {
+      type: 'push',
+      payload: '/cars'
     }
   },
   {

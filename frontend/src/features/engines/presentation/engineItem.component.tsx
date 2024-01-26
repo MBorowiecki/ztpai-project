@@ -43,11 +43,12 @@ export const EngineItem = ({ type = 'existing', engine, onStopProduction }: Prop
               <div className="row">
                 <div className="col col-grow">
                   <Button
-                    type="error"
+                    type={engine?.in_production ? 'error' : 'tertiary'}
                     onClick={() => onStopProduction?.(engine?.id.toString() ?? '')}
-                    disabled={!engine?.in_production}
                     className="size-m pv-2 weight-bold">
-                    <p className="size-m color-dark_3">Stop production</p>
+                    <p className="size-m color-dark_3">
+                      {engine?.in_production ? 'Stop production' : 'Start production'}
+                    </p>
                   </Button>
                 </div>
               </div>

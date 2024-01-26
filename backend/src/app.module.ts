@@ -10,6 +10,8 @@ import { CompaniesModule } from './companies/companies.module';
 import { Company } from './companies/entities/company.entity';
 import { EnginesModule } from './engines/engines.module';
 import { Engine } from './engines/entities/engine.entity';
+import { Car } from './cars/entities/car.entity';
+import { CarsModule } from './cars/cars.module';
 
 @Module({
   imports: [
@@ -21,7 +23,7 @@ import { Engine } from './engines/entities/engine.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [User, Company, Engine],
+      entities: [User, Company, Engine, Car],
       synchronize: true
     }),
     JwtModule.register({
@@ -31,7 +33,8 @@ import { Engine } from './engines/entities/engine.entity';
     }),
     AuthModule,
     CompaniesModule,
-    EnginesModule
+    EnginesModule,
+    CarsModule
   ],
   controllers: [AppController],
   providers: [AppService]

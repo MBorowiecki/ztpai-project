@@ -147,7 +147,7 @@ export class EnginesService {
     }
 
     await this.engineRepository.update(engineId, {
-      in_production: false
+      in_production: !engine.in_production
     });
 
     return 'Engine production stopped';

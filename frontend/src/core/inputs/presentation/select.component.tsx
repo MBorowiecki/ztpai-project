@@ -1,34 +1,34 @@
-import { ChangeEventHandler, HTMLInputTypeAttribute, type JSX } from 'react';
+import { ChangeEventHandler, type JSX } from 'react';
 
 interface Props {
-  type: HTMLInputTypeAttribute;
   name: string;
   placeholder: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
+  onChange: ChangeEventHandler<HTMLSelectElement>;
   value?: string;
   error?: string | boolean;
   className?: string;
+  children?: JSX.Element | JSX.Element[];
 }
 
-export const Input = ({
-  type,
+export const Select = ({
   name,
   placeholder,
   onChange,
   className,
   error,
-  value
+  value,
+  children
 }: Props): JSX.Element => {
   return (
     <>
-      <input
+      <select
         className={`input color-light_1 ${className ?? ''}`}
-        type={type}
         onChange={onChange}
         placeholder={placeholder}
         name={name}
-        value={value}
-      />
+        value={value}>
+        {children}
+      </select>
 
       {error && <p className="mt-1 color-error_1 size-xs">{error}</p>}
     </>

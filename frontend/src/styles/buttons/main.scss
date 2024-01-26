@@ -19,6 +19,28 @@
     }
   }
 
+  &-secondary {
+    background-color: $secondaryButtonColor;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($secondaryButtonColor, 0.8);
+    }
+  }
+
+  &-tertiary {
+    background-color: $tertiaryButtonColor;
+    color: $colorLight1;
+
+    transition: background-color .1s ease-in-out;
+
+    &:not(:disabled):hover {
+      background-color: rgba($tertiaryButtonColor, 0.8);
+    }
+  }
+
   &-clear {
     background-color: transparent;
     color: $colorLight1;

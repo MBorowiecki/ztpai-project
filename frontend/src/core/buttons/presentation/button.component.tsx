@@ -1,9 +1,9 @@
-import { type JSX } from 'react';
+import { type JSX, MouseEventHandler } from 'react';
 
 interface Props {
-  type?: 'primary' | 'clear' | 'error';
+  type?: 'primary' | 'secondary' | 'tertiary' | 'clear' | 'error';
   children: JSX.Element | string;
-  onClick: () => void;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   error?: string;
   className?: string;
   disabled?: boolean;

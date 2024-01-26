@@ -93,7 +93,9 @@ export const RegisterScreen = (): JSX.Element => {
                 value={values.confirmedPassword}
               />
 
-              <Button onClick={handleSubmit} className="mt-4 size-m weight-bold pv-2 full-width">
+              <Button
+                onClick={() => handleSubmit()}
+                className="mt-4 size-m weight-bold pv-2 full-width">
                 REGISTER
               </Button>
 

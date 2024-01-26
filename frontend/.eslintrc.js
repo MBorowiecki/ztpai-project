@@ -41,7 +41,9 @@ module.exports = {
         "optionalDependencies": false, 
         "peerDependencies": false
       }
-    ]
+    ],
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off'
   },
   plugins: ['react', '@tanstack/query', 'simple-import-sort'],
   settings: {
