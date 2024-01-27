@@ -13,7 +13,7 @@ interface Props {
 
 export const EngineItem = ({ type = 'existing', engine, onStopProduction }: Props): JSX.Element => {
   return (
-    <div className="col col-4 full-height">
+    <div className="col col-4 col-s-12 full-height">
       <div className={`card m-1 ${type === 'new' && 'card--button'} full-height`}>
         {type === 'new' ? (
           <Link to="/engines/new" className="text-no_decoration">
