@@ -13,7 +13,11 @@ export const CarsScreen = (): JSX.Element => {
 
   return (
     <main>
-      <Sidebar hasCompany={companyData !== undefined} sidebarOpen={sidebarOpen} />
+      <Sidebar
+        hasCompany={companyData !== undefined}
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
 
       <div className="content-with_sidebar">
         <TopBar company={companyData} setSidebarOpen={setSidebarOpen} />
