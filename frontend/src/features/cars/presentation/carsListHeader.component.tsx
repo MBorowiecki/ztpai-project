@@ -13,13 +13,13 @@ export const CarsListHeader = ({ filteringOption, setFilteringOption }: Props): 
   return (
     <div className="col-12 mb-2">
       <div className="row row-vcenter mb-2">
-        <div className="col col-7">
+        <div className="col col-7 col-s-12 mb-s-1">
           <h2 className="size-xxl weight-bold color-primary_3">Cars</h2>
         </div>
-        <div className="col col-5">
+        <div className="col col-5 col-s-12">
           <div className="row row-hcenter">
             <div className="col col-8">
-              <div className="row row-vcenter ph-2">
+              <div className="row row-vcenter ph-2 pl-s-0">
                 <div className="col mr-1">
                   <p className="size-l color-light_2">Filter by</p>
                 </div>
